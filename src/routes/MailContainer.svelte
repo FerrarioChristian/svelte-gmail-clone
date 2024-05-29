@@ -1,6 +1,7 @@
 <script>
 	import { emailStore } from '$lib/emailStore.js';
 	import { searchValue } from '$lib/utilsStore.js';
+	import { filterStore } from '$lib/utilsStore.js';
 	import MailPreview from './MailPreview.svelte';
 
 	let emailList = [];
@@ -18,16 +19,12 @@
 		emailList = value;
 	});
 
-	$: emailList = emailList.filter(filterCallback);
+	filterStore.subscribe((callback) => {
+		filterCallback = callback;
+		emailStore.update((emails) => emails);
+	});
 
-	const defaultFilter = (email) => {
-		return (
-			email.mittente.toLowerCase().includes(inputValue.toLowerCase()) ||
-			email.oggetto.toLowerCase().includes(inputValue.toLowerCase()) ||
-			email.corpo.toLowerCase().includes(inputValue.toLowerCase())
-		);
-	};
-	filterCallback = defaultFilter;
+	$: emailList = emailList.filter((email) => filterCallback(email, inputValue));
 </script>
 
 <div class="mail-container">

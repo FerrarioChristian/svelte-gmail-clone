@@ -1,16 +1,19 @@
 <script>
 	import { searchValue } from '$lib/utilsStore.js';
 	export let toggleShowSettings;
+	import { setDefaultFilter } from '$lib/utilsStore.js';
 
 	$: inputValue = '';
 	$: {
+		setDefaultFilter();
 		searchValue.set(inputValue);
 	}
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <nav>
-	<div class="logo-container">
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
+	<div class="logo-container" on:click={setDefaultFilter}>
 		<div class="icon">
 			<span class="material-symbols-outlined"> menu </span>
 		</div>
@@ -51,6 +54,7 @@
 	}
 
 	img {
+		cursor: pointer;
 		margin: 0.4rem;
 	}
 

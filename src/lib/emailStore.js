@@ -6,7 +6,7 @@ export const emailStore = writable([
 		oggetto: 'Meeting di lavoro',
 		corpo:
 			'Ciao tutti, vorrei organizzare un meeting di lavoro per discutere i prossimi passi del progetto. Fate sapere quando siete disponibili. Grazie!',
-		speciale: false,
+		speciale: true,
 		importante: false
 	},
 	{
@@ -38,8 +38,8 @@ export const emailStore = writable([
 		oggetto: 'Questionario sulla soddisfazione',
 		corpo:
 			'Gentili utenti, vorremmo chiedervi di compilare un breve questionario sulla vostra soddisfazione con i nostri servizi. Grazie per il vostro tempo.',
-		speciale: false,
-		importante: false
+		speciale: true,
+		importante: true
 	},
 	{
 		mittente: 'frank@example.com',
@@ -54,7 +54,7 @@ export const emailStore = writable([
 		oggetto: 'Risposta alla tua domanda',
 		corpo:
 			'Ciao Bob, ecco la risposta alla tua domanda: ... Se hai ulteriori domande, non esitare a chiedere.',
-		speciale: false,
+		speciale: true,
 		importante: false
 	},
 	{
@@ -70,7 +70,7 @@ export const emailStore = writable([
 		oggetto: 'Invito al webinar',
 		corpo:
 			'Salve, ti inviamo un invito al nostro prossimo webinar sulle ultime tendenze del settore. Speriamo di vederti lì!',
-		speciale: false,
+		speciale: true,
 		importante: false
 	},
 	{

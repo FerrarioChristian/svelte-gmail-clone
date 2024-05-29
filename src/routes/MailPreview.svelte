@@ -55,6 +55,10 @@
 </div>
 
 <style>
+	* {
+		cursor: pointer;
+	}
+
 	.mail-preview {
 		box-sizing: border-box;
 		display: flex;
